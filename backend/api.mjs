@@ -17,15 +17,24 @@ class ApiError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
 
-export function isSameOrigin(req) {
+export function isSameOrigin(req, env = process.env) {
   const host = req.headers.host;
   if (!host || typeof host !== 'string') return false;
   let expected;
   try {
-    expected = new URL(`http://${host}`);
-    if (!['localhost', '127.0.0.1', '[::1]'].includes(expected.hostname)) return false;
+    const hosted = env.VERCEL === '1';
+    expected = new URL(`${hosted ? 'https' : 'http'}://${host}`);
     if (expected.username || expected.password || expected.pathname !== '/' || expected.search || expected.hash) return false;
-    if (req.socket?.localPort && Number(expected.port || 80) !== req.socket.localPort) return false;
+    if (hosted) {
+      // Trust project-controlled deployment URLs, never arbitrary Host/forwarded-host headers.
+      const allowed = [env.VERCEL_URL, env.VERCEL_BRANCH_URL, env.VERCEL_PROJECT_PRODUCTION_URL]
+        .filter(Boolean).map(domain => `https://${domain}`);
+      if (env.APP_ORIGIN) allowed.push(new URL(env.APP_ORIGIN).origin);
+      if (!allowed.includes(expected.origin)) return false;
+    } else {
+      if (!['localhost', '127.0.0.1', '[::1]'].includes(expected.hostname)) return false;
+      if (req.socket?.localPort && Number(expected.port || 80) !== req.socket.localPort) return false;
+    }
   } catch { return false; }
   if (req.headers['sec-fetch-site'] === 'cross-site') return false;
   const origin = req.headers.origin;
@@ -96,7 +105,9 @@ function acquireSession(req, chat) {
   const now = Date.now();
   for (const [key, session] of sessions) if (!session.active && now - session.lastSeen > SESSION_TTL_MS) sessions.delete(key);
   for (const [key, window] of addressWindows) if (now - window.since > WINDOW_MS) addressWindows.delete(key);
-  const address = req.socket.remoteAddress ?? 'local';
+  const address = process.env.VERCEL === '1' && typeof req.headers['x-forwarded-for'] === 'string'
+    ? req.headers['x-forwarded-for'].split(',')[0].trim()
+    : req.socket?.remoteAddress ?? 'local';
   const addressWindow = addressWindows.get(address) ?? { since: now, count: 0 };
   if (addressWindow.count >= 30) throw new ApiError(429, 'Too many requests. Try again in a minute.');
   // Never let changing session IDs evade the per-address window.
@@ -164,7 +175,7 @@ async function startAgent(chat, signal, write) {
 export async function handleApi(req, res) {
   const path = new URL(req.url, 'http://localhost').pathname;
   if (!path.startsWith('/api/')) return false;
-  if (!isSameOrigin(req)) { json(res, 403, { error: 'This API is available only from the local demo origin.' }); return true; }
+  if (!isSameOrigin(req)) { json(res, 403, { error: 'This API is available only from the demo origin.' }); return true; }
   if (req.method === 'GET' && path === '/api/health') {
     json(res, 200, { ok: true, model: REQUESTED_MODEL, libraryModel: LIBRARY_MODEL, modelAlias: 'Requested spelling maps explicitly to the library’s GPT-6 Luna Fast priority route.', fictional: true });
     return true;

@@ -7,3 +7,4 @@ artifacts/
 agent.log
 llm_calls/
 .runtime/
+.vercel/

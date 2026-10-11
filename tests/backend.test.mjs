@@ -51,6 +51,24 @@ test('same-origin guard rejects foreign origins, DNS rebinding hostnames, and cr
   assert.equal(isSameOrigin({ headers: { host: 'localhost:4310' }, socket: { localPort: 4311 } }), false);
 });
 
+test('hosted origin guard accepts only this project and rejects cross-origin requests', () => {
+  const env = { VERCEL: '1', VERCEL_URL: 'web-verse-build.vercel.app', VERCEL_BRANCH_URL: 'web-verse-main.vercel.app', VERCEL_PROJECT_PRODUCTION_URL: 'web-verse.vercel.app', APP_ORIGIN: 'https://demo.example.com' };
+  const check = headers => isSameOrigin({ headers, socket: { localPort: 3000 } }, env);
+  for (const host of ['web-verse-build.vercel.app', 'web-verse-main.vercel.app', 'web-verse.vercel.app', 'demo.example.com']) {
+    assert.equal(check({ host, origin: `https://${host}` }), true);
+    assert.equal(check({ host }), true);
+  }
+  assert.equal(check({ host: 'web-verse.vercel.app', origin: 'https://evil.com' }), false);
+  assert.equal(check({ host: 'web-verse.vercel.app', origin: 'http://web-verse.vercel.app' }), false);
+  assert.equal(check({ host: 'web-verse.vercel.app', 'sec-fetch-site': 'cross-site' }), false);
+  assert.equal(check({ host: 'other-project.vercel.app', origin: 'https://other-project.vercel.app' }), false);
+  assert.equal(check({ host: 'localhost:3000' }), false);
+  assert.equal(check({ host: 'web-verse.vercel.app@evil.com' }), false);
+  assert.equal(check({ host: 'evil.com', 'x-forwarded-host': 'web-verse.vercel.app' }), false);
+  assert.equal(check({ host: 'web-verse.vercel.app.evil.com' }), false);
+  assert.equal(isSameOrigin({ headers: { host: 'web-verse.vercel.app' } }, {}), false);
+});
+
 test('card numbers and obvious credentials never reach the model', () => {
   for (const text of ['4111 1111 1111 1111', '4111-1111-1111-1111', '4111.1111.1111.1111', '４１１１１１１１１１１１１１１１', '1234567890123', 'api_key=abcdefghijklmnop', 'password: mylongpassword', 'password is mylongpassword', 'Bearer abcdefghijklmnop01234', 'sk-liveabcdefghijklmnop', 'ghp_abcdefghijklmnop0123456789']) {
     assert.equal(containsSensitiveData(text), true, text);

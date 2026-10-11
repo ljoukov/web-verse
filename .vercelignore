@@ -1,0 +1,9 @@
+.env*
+.git
+artifacts
+docs
+tests
+node_modules
+agent.log
+llm_calls
+.runtime

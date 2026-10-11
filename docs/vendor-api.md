@@ -66,4 +66,4 @@ Rate and concurrency counters are held in memory per server instance; they are n
 
 ## Verification
 
-Run `npm run check` from the repository root. The eight tests cover quote and diagnostic arithmetic, invalid scopes, local and hosted origin enforcement, credential rejection, and message validation.
+Run `npm run check` from the repository root. The tests cover quote and diagnostic arithmetic, invalid scopes, local and hosted origin enforcement, credential rejection, and message validation.

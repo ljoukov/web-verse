@@ -143,7 +143,7 @@ The vendor backend uses `@ljoukov/llm` 9.0.0. The requested model alias `chatgpt
 npm run check
 ```
 
-This checks server and shared vendor-script syntax and runs eight backend tests covering quote arithmetic, scope validation, local and hosted origin checks, sensitive-input rejection, and message-history validation. To check the workspace scripts too:
+This checks server and shared vendor-script syntax and runs backend and HTTP integration tests covering quote arithmetic, scope validation, local and hosted origin checks, sensitive-input rejection, message-history validation, and the exported hosting entrypoint. To check the workspace scripts too:
 
 ```sh
 node --check public/workspace/app.js

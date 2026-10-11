@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e37">
+  <meta name="description" content="Stillwater — thoughtful plumbing and bathroom repairs. A fictional WebVerse demo with Wren, your repair concierge.">
+  <title>Stillwater — a little care, a calmer home.</title>
+  <link rel="stylesheet" href="/stillwater/style.css">
+  <link rel="stylesheet" href="/shared/agent.css">
+  <script src="/shared/agent.js" defer></script>
+</head>
+<body data-provider="stillwater">
+  <header class="sw-header">
+    <a class="sw-logo" href="/stillwater/" aria-label="Stillwater home">
+      <svg viewBox="0 0 32 40" aria-hidden="true"><path d="M16 2C12 10 3 19 3 26a13 13 0 0 0 26 0C29 19 20 10 16 2Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 27c1 5 4 7 8 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      <span>stillwater<span class="sw-logo-dot">.</span></span>
+    </a>
+    <nav class="sw-nav" aria-label="Main navigation">
+      <a href="#services">What we do</a><a href="#approach">Our approach</a><a href="#questions">Good questions</a>
+    </nav>
+    <button class="sw-header-cta" data-open-agent data-prompt="I'd like help with a plumbing or bathroom repair.">Let’s talk <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main>
+    <section class="sw-hero" aria-labelledby="hero-title">
+      <div class="sw-hero-copy">
+        <div class="sw-eyebrow"><span class="sw-small-line"></span> Plumbing & bathroom care</div>
+        <h1 id="hero-title">A little care.<br>A <em>calmer</em><br>home.</h1>
+        <p class="sw-hero-description">From the tap that won’t stop dripping to the bathroom you’ve been dreaming of. Thoughtful repairs, clearly priced.</p>
+        <button class="sw-button sw-button-dark" data-open-agent data-prompt="Can you help me work out what my plumbing repair needs?">Tell us what’s going on <span aria-hidden="true">↗</span></button>
+        <div class="sw-wren-intro">
+          <span class="sw-wren-avatar" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M10 25c3-1 5-4 7-8 2-4 7-5 10-2l5 1-4 4c0 7-6 12-12 9l-5 3 1-5-4-4Z" fill="currentColor"/><circle cx="25" cy="16" r="1.2" fill="#f7f3ea"/><path d="m18 28-1 5m4-5 1 5" stroke="currentColor" stroke-width="1.5"/></svg></span>
+          <div><button data-open-agent class="sw-inline-button">Talk to Wren <span aria-hidden="true">↗</span></button><span>Our AI repair concierge. Here to help.</span></div>
+        </div>
+        <p class="sw-hero-footnote">Small repairs. Fresh starts. A home that feels like yours.</p>
+      </div>
+
+      <div class="sw-hero-art">
+        <svg class="sw-bathroom" viewBox="0 0 720 850" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="bath-title bath-desc">
+          <title id="bath-title">A considered bathroom, illustrated</title>
+          <desc id="bath-desc">A warm architectural illustration of a quiet bathroom with forest green tiles, a brass faucet, arched mirror, oak vanity, folded towels, and a leafy plant.</desc>
+          <defs>
+            <linearGradient id="wall" x1="0" x2="1"><stop stop-color="#477267"/><stop offset="1" stop-color="#315b51"/></linearGradient>
+            <linearGradient id="mirror" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9e4d7"/><stop offset=".55" stop-color="#cbd6c6"/><stop offset="1" stop-color="#a8bfb0"/></linearGradient>
+            <linearGradient id="oak" x1="0" x2="1"><stop stop-color="#aa7652"/><stop offset=".4" stop-color="#c69a6b"/><stop offset="1" stop-color="#a8724d"/></linearGradient>
+            <linearGradient id="brass" x1="0" x2="1"><stop stop-color="#947346"/><stop offset=".4" stop-color="#d8bd81"/><stop offset=".65" stop-color="#b9985b"/><stop offset="1" stop-color="#8c6b3f"/></linearGradient>
+            <pattern id="tiles" width="82" height="110" patternUnits="userSpaceOnUse"><path d="M0 0H82V110H0Z" fill="none" stroke="#a0b5a2" stroke-opacity=".28" stroke-width="1.2"/><path d="M5 4H76" stroke="#c4d0bc" stroke-opacity=".06" stroke-width="2"/></pattern>
+            <pattern id="grain" width="50" height="180" patternUnits="userSpaceOnUse"><path d="M10-20c-8 48 15 61 2 99s8 75 2 111M25-20c-8 65 12 88 2 117s8 66 4 97M42-10c-5 36 8 92 0 131s5 52 1 70" stroke="#5f432e" stroke-opacity=".22" stroke-width="1" fill="none"/></pattern>
+            <pattern id="terrazzo" width="94" height="76" patternUnits="userSpaceOnUse"><path d="m13 9 7 1-2 5-5-1Z" fill="#657565" opacity=".32"/><path d="m63 35 6-4 6 5-4 7Z" fill="#f4eedc"/><path d="m36 54 4-1 3 6-6 3Z" fill="#ae9479" opacity=".6"/><path d="m82 7 6 3-4 4Z" fill="#777666" opacity=".35"/><circle cx="12" cy="61" r="2" fill="#f2eedf"/><circle cx="45" cy="18" r="2" fill="#89917b" opacity=".5"/></pattern>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+            <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+          </defs>
+          <g filter="url(#paper)">
+            <path fill="url(#wall)" d="M0 0h720v650H0Z"/>
+            <path fill="url(#tiles)" d="M0 0h720v650H0Z"/>
+            <path fill="#d8cdb7" d="m0 650 720-46v246H0Z"/>
+            <path fill="url(#terrazzo)" d="m0 650 720-46v246H0Z"/>
+            <path d="m0 745 720-72M230 635 100 850M530 615l77 235" stroke="#988f7b" stroke-width="1" opacity=".5"/>
+            <path fill="#22473f" opacity=".35" d="M0 0h62v660L0 686Z"/>
+            <path fill="#819283" d="M590 0h130v530l-130 28Z"/>
+            <path fill="#dce5cf" d="M607 42h113v389l-113 17Z"/>
+            <path fill="#b7cbb0" d="M626 58h94v361l-94 12Z"/>
+            <path d="m682 54 1 372m-58-185 95-9" stroke="#e9eddb" stroke-width="8"/>
+            <path d="m630 429 90-12" stroke="#a5b99c" stroke-width="3"/>
+            <path d="m605 448 115-18v20l-115 21Z" fill="#e6e4d4"/>
+            <path d="M558 36h25v370" fill="none" stroke="#a8b99f" stroke-width="2"/>
+            <path d="m561 456 110 126-298 61-89-211Z" fill="#eee9ce" opacity=".065"/>
+
+            <ellipse cx="329" cy="704" rx="206" ry="40" fill="#516250" opacity=".26" filter="url(#shadow)"/>
+            <path d="M200 357V177a137 137 0 0 1 274 0v180Z" fill="#203e37" opacity=".4" transform="translate(7 10)"/>
+            <path d="M196 353V179a137 137 0 0 1 274 0v174Z" fill="url(#brass)"/>
+            <path d="M202 347V179a131 131 0 0 1 262 0v168Z" fill="url(#mirror)"/>
+            <path d="m210 260 236-155v52L210 313Z" fill="#fffbed" opacity=".17"/>
+            <path d="M363 66c60 19 100 64 100 115v165" fill="none" stroke="#f3edda" stroke-opacity=".38" stroke-width="2"/>
+            <path d="M441 173h23v174h-23Z" fill="#8fa496" opacity=".15"/>
+            <path d="m221 347 243-1v-43l-243 6Z" fill="#b4c4b4" opacity=".48"/>
+
+            <path d="M136 425h408v242l-18 33H155l-19-29Z" fill="url(#oak)"/>
+            <path d="M136 425h408v242l-18 33H155l-19-29Z" fill="url(#grain)"/>
+            <path d="M136 425h408v17H136Z" fill="#573d2f" opacity=".23"/>
+            <path d="M338 445v237M153 569h374" stroke="#775638" stroke-width="2"/>
+            <path d="M153 448v232h374V448" stroke="#dbb183" stroke-opacity=".4" stroke-width="2" fill="none"/>
+            <path d="M260 494h35m77 0h35m-147 115h35m77 0h35" stroke="#cfb576" stroke-width="5" stroke-linecap="round"/>
+            <path d="m136 667 19 33v-247l-19-10Z" fill="#694a35" opacity=".25"/>
+            <path d="m544 425 19-16v234l-37 57 18-33Z" fill="#755139"/>
+            <path d="M153 690v27h19v-27m326 0v27h19v-27" fill="#69533e"/>
+            <path d="m122 411 412-1 34 15-22 14H132Z" fill="#e9e5d8"/>
+            <path d="m122 411 412-1 34 15H132Z" fill="#f6f3e7"/>
+            <path d="m132 425 414 1v13H132Z" fill="#c7cbbb"/>
+            <ellipse cx="329" cy="409" rx="110" ry="19" fill="#728577" opacity=".3"/>
+            <path d="M233 371c0 37 24 61 96 61s96-24 96-61Z" fill="#d5ded0"/>
+            <ellipse cx="329" cy="371" rx="96" ry="29" fill="#f5f3e9"/>
+            <ellipse cx="329" cy="370" rx="78" ry="20" fill="#d0d9cb"/>
+            <ellipse cx="329" cy="368" rx="77" ry="18" fill="#dde3d8"/>
+            <path d="M254 380c25 15 123 14 151-2" fill="none" stroke="#faf8ed" stroke-width="3" opacity=".7"/>
+            <ellipse cx="329" cy="374" rx="7" ry="3" fill="#86968a"/>
+            <path d="M325 348v-47c0-20 27-25 27-4v21h-10v-20c0-9-9-7-9 4v46Z" fill="url(#brass)"/>
+            <path d="M341 319h15v6h-15Z" fill="#d8bd81"/>
+            <ellipse cx="329" cy="348" rx="11" ry="4" fill="#b8975c"/>
+            <path d="m377 336 2-28h5l3 28" fill="url(#brass)"/>
+            <ellipse cx="382" cy="336" rx="11" ry="4" fill="#b9975c"/>
+            <path d="M385 308h13" stroke="#c8ad70" stroke-width="4" stroke-linecap="round"/>
+
+            <path d="M478 369h25v41h-25Z" fill="#9eae96"/>
+            <path d="M478 369h25v5h-25Z" fill="#cbd4bd"/>
+            <path d="M489 369v-13h14" stroke="#bfa570" stroke-width="4" fill="none"/>
+            <path d="m496 356 8 3" stroke="#bfa570" stroke-width="3"/>
+            <path d="M158 379h39v24h-39Z" fill="#dce4cc"/>
+            <path d="m159 379 37-2v6h-37Z" fill="#eaf0dc"/>
+            <path d="M166 383v16m6-16v16m6-16v16m6-16v16m6-16v16" stroke="#b9c6a9" stroke-width="1"/>
+
+            <path d="M65 170h13v267H65Z" fill="#b59860"/>
+            <path d="M74 190h57m-57 183h57" stroke="#c2a774" stroke-width="5" stroke-linecap="round"/>
+            <path d="M90 196h28v178H90Z" fill="#f4eddb"/>
+            <path d="M93 203v156m7-160v163m7-160v162m7-162v163" stroke="#dbd1bc" stroke-width="1" opacity=".75"/>
+            <path d="m90 372 28 2v9H90Z" fill="#d4c8ae"/>
+            <path d="M67 174v253" stroke="#ecd4a0" stroke-width="1"/>
+
+            <path d="m585 657 72-11-7 86-59 8Z" fill="#bb9b70"/>
+            <path d="m585 657 72-11-5 16-64 11Z" fill="#dbc59c"/>
+            <path d="m591 681 60-12m-59 25 58-12m-56 25 54-12m-53 24 50-12" stroke="#967951" stroke-width="1" opacity=".7"/>
+            <path d="M623 658c-6-73-7-132-16-186m18 190c10-62 12-106 23-155m-24 144c-29-40-50-65-68-106m65 116c23-35 44-58 61-78" fill="none" stroke="#577458" stroke-width="4"/>
+            <path d="M609 483c-30-9-38-31-26-51 24 1 33 21 26 51Zm4 55c-30-5-39-30-28-49 23 2 36 21 28 49Zm5 58c-36-6-48-29-36-51 29 1 44 25 36 51Zm27-77c-3-30 16-48 39-41 2 26-15 42-39 41Zm-11 48c1-28 18-43 40-37-2 24-13 38-40 37Zm-2 47c6-31 24-39 47-31-7 23-22 33-47 31Zm-52-27c-31-2-49-21-40-44 27-1 44 18 40 44Zm-13-44c-29-6-42-25-29-46 22 1 35 21 29 46Zm89 68c1-24 14-35 35-28-2 22-16 30-35 28Z" fill="#46694e"/>
+            <path d="M609 483c-7-17-16-29-25-40m30 95c-9-21-16-32-23-39m47 63c10-14 18-20 28-26m-36 73c17-18 27-20 37-21" fill="none" stroke="#8b9e71" stroke-width="1" opacity=".55"/>
+
+            <path d="m204 767 205-17 43 38-221 19Z" fill="#f0e9d7"/>
+            <path d="m214 773 193-16m-186 24 194-16m-188 24 194-16" stroke="#d9ccb4" stroke-width="2"/>
+            <path d="m229 802 217-18" stroke="#d6c5a8" stroke-width="3"/>
+          </g>
+        </svg>
+        <div class="sw-art-caption"><span>Considered details.<br>Everyday comfort.</span><span class="sw-caption-no">FIG. 01<br>THE QUIET CORNER</span></div>
+        <div class="sw-art-note"><span class="sw-note-dot"></span><div><strong>Let’s get your home flowing.</strong><span>A conversation is a good place to start.</span></div></div>
+      </div>
+    </section>
+
+    <section class="sw-care-strip" aria-label="Our service promises"><span>Clear, upfront estimates</span><span>Diagnostic visit included</span><span>No deposit for an enquiry</span><span>A little less to worry about</span></section>
+
+    <section class="sw-section sw-services" id="services" aria-labelledby="services-title">
+      <div class="sw-section-heading"><div><div class="sw-eyebrow">01 / What we do</div><h2 id="services-title">For the things<br>that need <em>attention.</em></h2></div><p>A dripping tap. A hidden leak. A room ready for a fresh start. We help you understand the next step before you take it.</p></div>
+      <div class="sw-service-list">
+        <article class="sw-service"><span class="sw-service-number">01</span><div class="sw-service-info"><h3>Leak tracing & repair</h3><p>Find the source, understand the cause, and put things right. For under-sink leaks, drips, and unexplained damp.</p></div><div class="sw-service-price">$145–285<span>Demo estimate range</span></div><button class="sw-service-arrow" data-open-agent data-prompt="I have a leak. Can you help me decide whether leak tracing and repair is right for me?" aria-label="Ask Wren about leak tracing and repair">↗</button></article>
+        <article class="sw-service"><span class="sw-service-number">02</span><div class="sw-service-info"><h3>Faucet replacement</h3><p>A better turn of the tap. Let’s talk through the fitting, the finish, and what your sink needs.</p></div><div class="sw-service-price">$125–225<span>Demo estimate range</span></div><button class="sw-service-arrow" data-open-agent data-prompt="I'd like to replace a faucet. What should I tell you about the current one?" aria-label="Ask Wren about faucet replacement">↗</button></article>
+        <article class="sw-service"><span class="sw-service-number">03</span><div class="sw-service-info"><h3>Toilet repair</h3><p>Running, leaking, or struggling to flush? A careful diagnosis helps us find the sensible fix.</p></div><div class="sw-service-price">$165–295<span>Demo estimate range</span></div><button class="sw-service-arrow" data-open-agent data-prompt="My toilet needs a repair. Help me work out what information you need." aria-label="Ask Wren about toilet repair">↗</button></article>
+        <article class="sw-service"><span class="sw-service-number">04</span><div class="sw-service-info"><h3>Bathroom refresh</h3><p>Keep the room you know. Give it a new feeling. Explore a considered refresh of fittings and finishes.</p></div><div class="sw-service-price">$2,400–4,200<span>Demo estimate range</span></div><button class="sw-service-arrow" data-open-agent data-prompt="I'm thinking about a bathroom refresh. Can we explore the scope and the demo price range?" aria-label="Ask Wren about a bathroom refresh">↗</button></article>
+      </div>
+      <div class="sw-services-foot"><p>Every job begins with a conversation. Ranges are illustrative; scope comes first.</p><button class="sw-text-link" data-open-agent data-prompt="I'm not sure which service I need. Can you help me choose?">Not sure where to start? Ask Wren <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section class="sw-approach" id="approach" aria-labelledby="approach-title">
+      <div class="sw-approach-intro"><div class="sw-eyebrow">02 / The Stillwater way</div><h2 id="approach-title">Good work starts<br>with <em>listening.</em></h2><p>You know your home. We know the questions to ask.<br>Here’s how we find a way forward, together.</p><svg class="sw-flow-drawing" viewBox="0 0 250 145" aria-hidden="true"><path d="M8 94c37-60 43 44 85 0s21-105 78-68 23 119 65 68" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="m226 100 11-6-3-13" stroke="currentColor" stroke-width="1.3" fill="none"/><circle cx="8" cy="94" r="3" fill="currentColor"/></svg></div>
+      <div class="sw-process"><article><span>01</span><div><h3>Tell us a little.</h3><p>Talk to Wren about what you’ve noticed. A few useful details help us point you toward the right service.</p></div></article><article><span>02</span><div><h3>Know where you stand.</h3><p>Explore the scope and an honest estimate range. The diagnostic visit is included, and an enquiry needs no deposit.</p></div></article><article><span>03</span><div><h3>Make a plan.</h3><p>Choose a demo slot and review the proposed next step. In this demo, nothing is booked and no payment is taken.</p></div></article></div>
+    </section>
+
+    <section class="sw-section sw-faq" id="questions" aria-labelledby="faq-title"><div class="sw-faq-intro"><div class="sw-eyebrow">03 / Good questions</div><h2 id="faq-title">A little<br><em>clarity.</em></h2><p>Something else on your mind?</p><button class="sw-text-link" data-open-agent>Wren is here to help <span aria-hidden="true">↗</span></button></div><div class="sw-faq-list">
+      <details><summary>What does the diagnostic visit cost?<span aria-hidden="true">+</span></summary><p>The diagnostic visit is included. Wren can help you describe the issue and understand the relevant demo estimate range before you explore a next step.</p></details>
+      <details><summary>Do I need to pay a deposit?<span aria-hidden="true">+</span></summary><p>No deposit is required for an enquiry. This is a fictional provider demo, so there are no real bookings, deposits, or payments.</p></details>
+      <details><summary>When could someone come by?<span aria-hidden="true">+</span></summary><p>The example slots for this demo are Monday at 10am and Tuesday at 2pm. Wren can help you compare them, but selecting a slot does not create a real appointment.</p></details>
+      <details><summary>I don’t know what’s causing the problem.<span aria-hidden="true">+</span></summary><p>That’s a useful place to start. Tell Wren what you’ve noticed, where it’s happening, and when it began. The concierge can help gather the details for the appropriate service.</p></details>
+      <details><summary>Can you help with a whole bathroom?<span aria-hidden="true">+</span></summary><p>Our bathroom refresh service has an illustrative range of $2,400–4,200. Start a conversation about your fittings, finishes, and priorities to see how a refresh could fit your home.</p></details>
+    </div></section>
+
+    <section class="sw-last-word" aria-labelledby="cta-title"><div class="sw-eyebrow">A conversation, then a plan.</div><h2 id="cta-title">Let’s take care<br>of <em>your home.</em></h2><button class="sw-button sw-button-dark" data-open-agent data-prompt="I'd like to start a repair enquiry. What would you like to know?">Start a conversation with Wren <span aria-hidden="true">↗</span></button><p>Demo next slots <span>Monday 10am</span><span>Tuesday 2pm</span></p><svg viewBox="0 0 290 360" aria-hidden="true"><path d="M145 8C111 74 21 153 21 231a124 124 0 0 0 248 0C269 153 179 74 145 8Z" fill="none" stroke="currentColor" stroke-width="1"/><path d="M145 45C111 111 48 166 48 231a97 97 0 0 0 194 0C242 166 179 111 145 45Z" fill="none" stroke="currentColor" stroke-width="1"/><path d="M145 82C111 148 75 177 75 231a70 70 0 0 0 140 0C215 177 179 148 145 82Z" fill="none" stroke="currentColor" stroke-width="1"/></svg></section>
+  </main>
+
+  <footer class="sw-footer"><div class="sw-footer-top"><a class="sw-logo" href="/stillwater/">stillwater<span class="sw-logo-dot">.</span></a><p>Thoughtful repairs.<br>A home, a little more at ease.</p><a class="sw-directory-link" href="/">Demo directory <span aria-hidden="true">↗</span></a></div><div class="sw-footer-bottom"><p>Fictional provider · WebVerse demo · No real bookings or payments</p><span>Made for everyday living.</span></div></footer>
+</body>
+</html>

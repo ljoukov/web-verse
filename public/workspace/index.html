@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>WebVerse — A little more possible.</title>
+  <meta name="description" content="Bring your favorite things from across the web into one thoughtful plan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/workspace/style.css"><link rel="stylesheet" href="/workspace/activity.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="wordmark" href="/workspace/" aria-label="WebVerse home"><span class="brand-symbol"><i></i><i></i><i></i></span><span>webverse<span class="brand-period">.</span></span></a>
+    <button class="new-project" id="new-project"><span data-icon="plus"></span><span>New space</span><kbd>⌘ K</kbd></button>
+    <div class="nav-label">YOUR SPACES</div>
+    <button class="space-link active" id="kitchen-nav"><span data-icon="grid"></span><span>The kitchen project</span><span class="small-dot"></span></button>
+    <button class="space-link" id="saved-nav"><span data-icon="bookmark"></span><span>Saved pieces</span><span class="nav-count" id="saved-count">3</span></button>
+    <div class="sidebar-project"><div class="project-thumb"></div><div><span>A fresh perspective</span><small>One room. Many possibilities.</small></div></div>
+    <div class="nav-label source-label">CONNECTED WEBSITES <span>03</span></div>
+    <button class="source-link" data-source="stillwater"><span class="vendor-logo sw">s<span>~</span></span><span>Stillwater<small>Fixtures & plumbing</small></span><span class="connection-dot"></span></button>
+    <button class="source-link" data-source="goodhands"><span class="vendor-logo gh">gh.</span><span>GoodHands<small>Floors & fitting</small></span><span class="connection-dot"></span></button>
+    <button class="source-link" data-source="formfield"><span class="vendor-logo ff">f.</span><span>Form & Field<small>Furniture & finishing</small></span><span class="connection-dot"></span></button>
+    <div class="sidebar-bottom"><button id="activity-sidebar" class="space-link" aria-label="Agent activity"><span data-icon="activity"></span><span>Agent activity</span><span class="activity-count" id="activity-count">0</span></button><div class="profile"><div class="avatar">Y</div><div>Yaroslav’s workspace<small>Personal space</small></div><span data-icon="chevronDown"></span></div></div>
+  </aside>
+  <main class="project-main">
+    <header class="topbar"><div class="breadcrumb">My spaces <span>/</span> <strong>The kitchen project</strong></div><div class="top-actions"><span class="saved-status" id="saved-status"><span data-icon="check"></span> All changes saved</span><button class="icon-button" id="more-button" aria-label="Project options"><span data-icon="more"></span></button></div></header>
+    <section class="project-content">
+      <div class="project-heading"><div><div class="eyebrow">A LITTLE MORE POSSIBLE</div><h1>The kitchen project<span>.</span></h1><p>Different websites. One place to bring it all together.</p></div><button class="outline-button" id="brief-button"><span data-icon="sliders"></span> Your brief</button></div>
+      <div class="project-toolbar"><div class="view-tabs" role="tablist" aria-label="Project view"><button id="tab-design" role="tab" aria-controls="design-view" aria-selected="true" class="active" data-view="design"><span data-icon="layers"></span> The vision</button><button id="tab-compare" role="tab" aria-controls="compare-view" tabindex="-1" aria-selected="false" data-view="compare"><span data-icon="chart"></span> Compare <span class="tab-counter">3</span></button></div><div class="brief-tags"><span><i class="tiny-swatch"></i> Warm minimal</span><span id="budget-tag">Up to $8,000</span></div></div>
+      <section id="design-view" class="view-panel" role="tabpanel" aria-labelledby="tab-design">
+        <div class="vision-canvas" id="vision-canvas">
+          <div class="moodboard" id="moodboard"><div class="moodboard-heading"><span>YOUR STARTING POINT</span><h2>Good things belong<br><em>together.</em></h2></div><figure class="mood floor"><img src="/workspace/assets/floor.png" alt="Warm natural oak flooring"><figcaption><i></i> Natural oak</figcaption></figure><figure class="mood sink"><img src="/workspace/assets/sink.png" alt="Brushed brass faucet and stone countertop"><figcaption><i></i> A softer finish</figcaption></figure><figure class="mood table"><img src="/workspace/assets/table.png" alt="Sculptural oak dining table and chairs"><figcaption><i></i> Room to gather</figcaption></figure><span class="moodboard-foot">A FEW FAVORITES. A WHOLE NEW FEELING.</span></div>
+          <div class="room-result" id="room-result" inert aria-hidden="true"><img src="/workspace/assets/room.png" alt="A kitchen combining the selected natural oak floor, brass fixtures and oak dining table"><div class="room-shade"></div><div class="room-caption"><span>THREE WEBSITES. YOUR SPACE.</span><h2>Consider it<br><em>brought together.</em></h2></div><button class="hotspot hotspot-floor" data-product="floor" aria-label="View natural oak flooring in the room"><span>+</span><b>Natural oak floor<small>GoodHands · $2,840</small></b></button><button class="hotspot hotspot-sink" data-product="sink" aria-label="View brass and stone sink in the room"><span>+</span><b>Brass & stone<small>Stillwater · $1,650</small></b></button><button class="hotspot hotspot-table" data-product="table" aria-label="View Gather dining set in the room"><span>+</span><b>The Gather table<small>Form & Field · $1,890</small></b></button><button class="composition-badge" id="composition-details"><span data-icon="layers"></span> Composed from 3 websites <span data-icon="arrowUpRight"></span></button></div>
+          <div class="compose-overlay" id="compose-overlay"><div class="compose-orbit"><i></i><i></i><i></i></div><h3>Finding the whole in the parts.</h3><p id="compose-progress">Bringing your selections into the same room…</p><div class="compose-progress"><span></span></div></div>
+          <button class="canvas-expand" id="expand-room" aria-label="Expand your vision"><span data-icon="expand"></span></button>
+        </div>
+        <div class="pieces-heading"><div><h3>Made for each other</h3><span>Three considered pieces, from across the web.</span></div><button class="text-button" id="compose-button">See it together <span data-icon="sparkles"></span></button></div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+      <section id="compare-view" class="view-panel hidden" role="tabpanel" aria-labelledby="tab-compare"><div class="compare-header"><div class="eyebrow">THE WHOLE PICTURE</div><h2>A beautiful fit.<br><em>A better total.</em></h2><p>Compare complete packages, or choose the best piece from each.</p></div><div class="quote-chart" id="quote-chart"></div><div class="compare-details" id="compare-details"></div></section>
+      <section class="project-total" id="project-total"><div class="total-icon"><span data-icon="layers"></span></div><div class="total-label"><strong>Your mix, your budget.</strong><span id="total-description">Compare the pieces to find your perfect combination.</span></div><div class="total-price"><strong id="total-price">$6,380</strong><span>of $8,000 budget</span></div><div class="budget-mini"><svg viewBox="0 0 64 64" aria-label="80 percent of budget"><circle cx="32" cy="32" r="26"/><circle class="budget-arc" cx="32" cy="32" r="26"/></svg><span>80<span>%</span></span></div></section>
+      <div class="protection-strip"><span data-icon="shield"></span><span id="protection-copy">Your agent can explore. You decide what leaves.</span><button id="protection-details">View boundaries <span data-icon="arrowUpRight"></span></button></div>
+    </section>
+    <footer class="workspace-footer"><span>A space for your ideas to become real.</span><span>WEBVERSE <i>✳</i></span></footer>
+  </main>
+  <aside class="chat-panel" aria-label="WebVerse assistant">
+    <div class="chat-header"><div class="assistant-avatar"><span class="brand-symbol"><i></i><i></i><i></i></span></div><div><strong>Your WebVerse</strong><span><i></i> Here to bring it together</span></div><button class="icon-button" id="chat-reset" aria-label="Start a new conversation"><span data-icon="refresh"></span></button></div>
+    <div class="chat-scroll" id="chat-scroll"><div class="chat-intro"><div class="eyebrow">A GOOD PLACE TO START</div><h2>What are you<br><em>making room for?</em></h2><p>I’ll bring the websites, the details, and the possibilities into one conversation.</p></div><div class="intro-sources"><span class="vendor-logo sw">s~</span><span class="vendor-logo gh">gh.</span><span class="vendor-logo ff">f.</span><span>3 websites, working together</span></div><div class="chat-messages" id="chat-messages" aria-live="polite" aria-relevant="additions"></div><div id="thinking" class="thinking hidden"><span class="thinking-flower">✳</span><span id="thinking-label">Connecting the dots</span><i></i><i></i><i></i></div></div>
+    <div class="chat-bottom"><div class="chat-suggestions" id="chat-suggestions"><button data-prompt="compare"><span data-icon="sparkles"></span> Find my kitchen mix <span data-icon="arrowUpRight"></span></button><button data-prompt="protect"><span data-icon="shield"></span> Check the fine print</button></div><form class="composer" id="composer"><label class="sr-only" for="chat-input">Message WebVerse</label><textarea id="chat-input" rows="2" placeholder="A thought, a question, a what if…"></textarea><div class="composer-actions"><span class="composer-context"><span data-icon="globe"></span> This space</span><div><button type="button" class="icon-button" id="voice-button" aria-label="Suggest a question"><span data-icon="sparkles"></span></button><button type="submit" class="send-button" id="send-button" aria-label="Send message"><span data-icon="arrowUp"></span></button></div></div></form><div class="chat-footnote"><span data-icon="lock"></span> Nothing booked. No payment details shared.</div></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<dialog id="brief-dialog" class="brief-dialog"><button class="icon-button dialog-close" id="close-brief" aria-label="Close brief"><span data-icon="close"></span></button><div class="eyebrow">THE KITCHEN PROJECT</div><h2>It starts with<br><em>what matters to you.</em></h2><label>Budget<span class="budget-input"><span>$</span><input id="budget-input" type="number" min="4000" max="50000" step="100" value="8000"></span></label><label>The feeling<select id="style-input"><option>Warm minimal</option><option>Natural & collected</option><option>Quietly contemporary</option></select></label><div class="boundaries"><h4>Your boundaries</h4><p><span data-icon="check"></span> Compare and request itemized quotes</p><p><span data-icon="lock"></span> Ask before making any booking</p><p><span data-icon="shield"></span> Keep payment details out of vendor chats</p></div><button class="primary-button" id="save-brief">Save my brief <span data-icon="arrowRight"></span></button></dialog>
+<dialog id="product-dialog" class="product-dialog"></dialog>
+<script type="module" src="/workspace/app.js"></script>
+</body>
+</html>

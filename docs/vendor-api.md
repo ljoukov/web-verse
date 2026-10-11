@@ -1,6 +1,6 @@
 # Vendor agents and API
 
-The three [standalone vendor websites](../README.md#the-vendor-neighborhood) share a local Node backend. Each agent uses its own fictional catalog, voice, diagnostic policy, deposit terms, and warranty details.
+The three [standalone vendor websites](../README.md#the-vendor-neighborhood) share a Node backend, hosted on Vercel or run locally. Each agent uses its own fictional catalog, voice, diagnostic policy, deposit terms, and warranty details.
 
 This API powers the vendor websites. The kitchen workspace currently uses its own scripted scenario rather than calling these endpoints.
 
@@ -58,12 +58,12 @@ Errors before streaming use an HTTP error and JSON `{ "error": "…" }`. Errors 
 
 ## Request boundaries
 
-The shared backend limits request sizes, message history, per-session rate, and concurrent requests. It rejects foreign browser origins, non-loopback hostnames, privileged message roles, and obvious card numbers or credential-shaped messages before they reach the model.
+The shared backend limits request sizes, message history, per-session rate, and concurrent requests. It rejects foreign browser origins, unrecognized hostnames, privileged message roles, and obvious card numbers or credential-shaped messages before they reach the model. Locally, only loopback hosts are accepted. On Vercel, only the project’s deployment, branch, and production domains (plus optional `APP_ORIGIN`) are accepted over HTTPS.
 
 Same-origin browser requests and local CLI clients are supported. No CORS permission is granted to other origins. The API exposes no payment, booking, email, filesystem, or subagent action.
 
-These checks are local demo boundaries, not a complete sensitive-data detector or an implementation of the proposed rehearsal/review/commit harness.
+Rate and concurrency counters are held in memory per server instance; they are not global limits across Vercel instances. These checks are demo boundaries, not a complete sensitive-data detector or an implementation of the proposed rehearsal/review/commit harness.
 
 ## Verification
 
-Run `npm run check` from the repository root. The seven tests cover quote and diagnostic arithmetic, invalid scopes, origin enforcement, credential rejection, and message validation.
+Run `npm run check` from the repository root. The eight tests cover quote and diagnostic arithmetic, invalid scopes, local and hosted origin enforcement, credential rejection, and message validation.

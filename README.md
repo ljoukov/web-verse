@@ -6,7 +6,7 @@ WebVerse explores a web organized around what you want to do. Bring options from
 
 The demo follows a kitchen project: oak flooring, brass fixtures, and a dining set from three different vendors, brought into one room and one budget.
 
-[**View the slides →**](https://docs.google.com/presentation/d/1XfzV9WAxSqPAnmhpxRrgz0oWqzWPdTNNoK2E4Qjm62M/edit) · [Run locally](#run-locally) · [Demo walkthrough](#demo-walkthrough) · [Under the hood](#under-the-hood)
+[**Try WebVerse →**](https://web-verse-five.vercel.app/workspace/) · [View the slides](https://docs.google.com/presentation/d/1XfzV9WAxSqPAnmhpxRrgz0oWqzWPdTNNoK2E4Qjm62M/edit) · [Run locally](#run-locally) · [Demo walkthrough](#demo-walkthrough)
 
 ![WebVerse kitchen workspace: a composed room, three connected providers, and a conversation comparing the selected pieces.](docs/screenshots/kitchen-workspace.jpg)
 
@@ -56,6 +56,20 @@ The layout brings the room, product cards, budget, and conversation into a singl
 <img src="docs/screenshots/mobile.jpg" alt="Mobile WebVerse workspace with the kitchen composition, three product cards, budget summary, and chat." width="390">
 
 </details>
+
+## Live demo
+
+One Vercel project hosts the workspace and all three vendor websites:
+
+| Experience | Link |
+| --- | --- |
+| Kitchen workspace | [web-verse-five.vercel.app/workspace/](https://web-verse-five.vercel.app/workspace/) |
+| Vendor directory | [web-verse-five.vercel.app](https://web-verse-five.vercel.app/) |
+| Stillwater · Wren | [Open Stillwater](https://web-verse-five.vercel.app/stillwater/) |
+| GoodHands · Kit | [Open GoodHands](https://web-verse-five.vercel.app/goodhands/) |
+| Form & Field · Ada | [Open Form & Field](https://web-verse-five.vercel.app/formfield/) |
+
+The Vercel project is connected to `ljoukov/web-verse`. Pushes to `main` trigger production deployments; other branches get preview deployments. The vendor chats use server-side token-provider settings in Production and Preview. See [deployment notes](docs/deployment.md).
 
 ## Run locally
 
@@ -129,7 +143,7 @@ The vendor backend uses `@ljoukov/llm` 9.0.0. The requested model alias `chatgpt
 npm run check
 ```
 
-This checks server and shared vendor-script syntax and runs seven backend tests covering quote arithmetic, scope validation, origin checks, sensitive-input rejection, and message-history validation. To check the workspace scripts too:
+This checks server and shared vendor-script syntax and runs eight backend tests covering quote arithmetic, scope validation, local and hosted origin checks, sensitive-input rejection, and message-history validation. To check the workspace scripts too:
 
 ```sh
 node --check public/workspace/app.js
